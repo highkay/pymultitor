@@ -1,4 +1,4 @@
-FROM mitmproxy/mitmproxy:5.0.1
+FROM mitmproxy/mitmproxy
 
 # Create app directory
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY pymultitor.py requirements.txt /app/
 
 RUN apk update && apk add tor
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
 
 EXPOSE 8080
 
